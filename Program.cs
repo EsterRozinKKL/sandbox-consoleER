@@ -9,17 +9,16 @@ class Program
             try{
       var obj = new TokenParam();
 
-                obj.client_id = "mg8u3pah8i07t3q";
+                obj.client_id = "";
                 obj.grant_type = "authorization_code";
-                obj.code = "wfciaQjl2ywAAAAAAAAAaEmtBd_qFT3GRACxiYBATJA";
-                obj.client_secret = "o7vwlxkjz0ibgrw";
+                obj.code = "";
+                obj.client_secret = "";
                 var jsonString = JsonSerializer.Serialize(obj);
 
             using (var httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
                 httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Length", "84");
-               // httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Host", "envoy");
 
                 using (var response = httpClient.PostAsync("https://api.dropboxapi.com/oauth2/token", new StringContent(jsonString, Encoding.UTF8, "application/json")))
                 {
